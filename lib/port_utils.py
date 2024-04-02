@@ -54,7 +54,7 @@ def startInteractiveMendeleyAuthorization(mendeley, secretsFilePath = None):
         print(session.token)
 
 
-def getPropertiesForMendeleyDoc(docObj, localPrefix = 'file:///C:/Users/Nandita%20Bhaskhar/Documents/5_Others/1_GoogleDrive/Literature%20Review/'):
+def getPropertiesForMendeleyDoc(docObj, localPrefix = 'file:///C:/Users/'):
     '''
     Gets all properties of a document object in Mendeley as a dict
     Args:

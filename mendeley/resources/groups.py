@@ -83,4 +83,5 @@ class GroupMembers(ListResource):
 
     @property
     def _url(self):
+        print(f"self.id: $",self.id)
         return '/groups/%s/members' % self.id

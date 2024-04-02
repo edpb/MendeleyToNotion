@@ -64,20 +64,23 @@ if __name__ == "__main__":
 
     # start mendeley session
     session = MendeleySession(mendeley, secrets["token"])
-
+    #print(session.access_token)
+    print(session.authorized)
+    print(session.client_id)
     # initialize an authenticator and a refresher
     authenticator = MendeleyAuthorizationCodeAuthenticator(mendeley, session.state())
     refresher = MendeleyAuthorizationCodeTokenRefresher(authenticator)
 
     # extract refresh token using refresher and activate session
     session = MendeleySession(mendeley, session.token, refresher=refresher)
-
+    print(f'session.token: $', session.token)
     # initialize notion client and determine notion DB
     notion = Client(auth = secrets_notion['notionToken'])
     notionDB_id = secrets_notion['databaseID']
 
     # get list of iterator objects
     obj = []
+    print(session.groups._url)
     for item in session.groups.iter():
         obj.append(item.documents)
     obj.append(session.documents)

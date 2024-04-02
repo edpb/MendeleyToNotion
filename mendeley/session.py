@@ -87,6 +87,7 @@ class MendeleySession(OAuth2Session):
             headers = {}
 
         headers['user-agent'] = self.__user_agent()
+        print(data,'-', full_url,'-', headers,'-', kwargs,'-', method)
 
         try:
             rsp = self.__do_request(data, full_url, headers, kwargs, method)
@@ -102,6 +103,9 @@ class MendeleySession(OAuth2Session):
                 rsp = self.__do_request(data, full_url, headers, kwargs, method)
             else:
                 raise
+            print('--------------------')
+            print(self.token)
+            print('--------------------')
 
         if rsp.ok:
             return rsp
