@@ -1,5 +1,4 @@
 # Custom
-secrets/*
 !secrets/*_dummy.json
 STDOUTlog.txt
 
